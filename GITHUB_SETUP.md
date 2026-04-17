@@ -10,10 +10,10 @@ git init
 git add .
 
 # 3. Create initial commit
-git commit -m "Initial commit: DDR Report Generation system with Vercel deployment"
+git commit -m "Initial commit: DiagnoReport with Vercel deployment"
 
 # 4. Add remote repository
-git remote add origin https://github.com/YOUR_USERNAME/ddr-report-system.git
+git remote add origin https://github.com/YOUR_USERNAME/diagnoreport.git
 
 # 5. Push to GitHub
 git branch -M main
@@ -96,7 +96,7 @@ Add these to your GitHub README:
 
 Include these links in your Google Drive folder:
 
-1. **GitHub Repository**: `https://github.com/YOUR_USERNAME/ddr-report-system`
+1. **GitHub Repository**: `https://github.com/YOUR_USERNAME/diagnoreport`
 2. **Live Demo**: `https://your-project.vercel.app`
 3. **Loom Video**: `https://loom.com/your-video-link`
 

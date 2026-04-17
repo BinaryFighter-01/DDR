@@ -1,7 +1,7 @@
 #!/bin/bash
 # Quick deployment script
 
-echo "🚀 Deploying DDR Report Generator to Vercel..."
+echo "🚀 Deploying DiagnoReport to Vercel..."
 
 # Check if Vercel CLI is installed
 if ! command -v vercel &> /dev/null; then

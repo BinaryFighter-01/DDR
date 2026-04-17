@@ -1,12 +1,12 @@
-# DDR Report Generation System
+# DiagnoReport
 
-A production-ready AI system for generating Detailed Diagnostic Reports (DDR) from inspection and thermal data.
+A production-ready AI system for generating Detailed Diagnostic Reports from inspection and thermal data.
 
 ## Features
 
 ✅ **Intelligent Document Processing**: Extracts text and images from inspection reports and thermal data
 ✅ **AI-Powered Merging**: Uses Google Gemini to intelligently combine and analyze data
-✅ **Structured Output**: Generates professional DDR with all 7 required sections
+✅ **Structured Output**: Generates professional diagnostic reports with all 7 required sections
 ✅ **Image Embedding**: Automatically places relevant images in appropriate report sections
 ✅ **Conflict Detection**: Identifies and reports discrepancies in data
 ✅ **Generalized Solution**: Works with any similar inspection/thermal reports, not hardcoded
@@ -24,11 +24,11 @@ A production-ready AI system for generating Detailed Diagnostic Reports (DDR) fr
 ## Project Structure
 
 ```
-ddr-report-system/
+diagnoreport/
 ├── backend/
 │   ├── document_processor.py    # Extract text/images from documents
 │   ├── gemini_processor.py      # AI-powered data merging and analysis
-│   └── ddr_generator.py         # Generate structured DDR reports
+│   └── ddr_generator.py         # Generate structured diagnostic reports
 ├── api/
 │   ├── generate_ddr.py          # Main API endpoint (Vercel)
 │   ├── health.py                # Health check endpoint
@@ -58,7 +58,7 @@ ddr-report-system/
 ```bash
 # 1. Clone repository
 git clone <repo-url>
-cd ddr-report-system
+cd diagnoreport
 
 # 2. Install dependencies
 pip install -r requirements.txt

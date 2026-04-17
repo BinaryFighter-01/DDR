@@ -1,4 +1,4 @@
-# DDR Report Generation System - Deployment Ready
+# DiagnoReport - Deployment Ready
 
 ## System Status: ✓ COMPLETE AND TESTED
 
@@ -46,7 +46,7 @@ All components verified and operational. System is ready for Vercel deployment.
 ## Current Architecture
 
 ```
-ddr-report-system/
+diagnoreport/
 ├── frontend/
 │   └── index.html (Premium advanced design - 550+ lines)
 ├── backend/
@@ -207,7 +207,7 @@ vercel deploy --prod
 
 ## Summary
 
-The DDR Report Generation System is production-ready with:
+DiagnoReport is production-ready with:
 - Premium advanced design (no emojis)
 - Complete backend processing pipeline
 - Free-tier Google Gemini AI integration

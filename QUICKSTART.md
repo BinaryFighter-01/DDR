@@ -22,7 +22,7 @@ vercel deploy
 
 ### Step 3: Configure API Key (1 min)
 1. Go to https://vercel.com/dashboard
-2. Click your "ddr-report-system" project
+2. Click your "diagnoreport" project
 3. Settings → Environment Variables
 4. Add: `GEMINI_API_KEY` = `[your-key-from-step-1]`
 
@@ -31,7 +31,7 @@ vercel deploy
 vercel deploy --prod
 ```
 
-**Done!** Your DDR Report Generator is live! 🎉
+**Done!** Your DiagnoReport is live! 🎉
 
 ---
 

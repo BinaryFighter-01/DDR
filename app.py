@@ -36,7 +36,7 @@ def health():
     
     return jsonify({
         "status": "healthy",
-        "service": "DDR Report Generator",
+        "service": "DiagnoReport",
         "version": "1.0.0"
     }), 200, cors_headers()
 
@@ -115,7 +115,7 @@ def generate_ddr():
         }), 500, cors_headers()
 
 if __name__ == '__main__':
-    print("Starting DDR Report Generator...")
+    print("Starting DiagnoReport...")
     print("Server: http://localhost:5000")
     print("Note: Set GEMINI_API_KEY before running:")
     print("   export GEMINI_API_KEY='your-api-key'")

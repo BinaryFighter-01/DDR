@@ -1,4 +1,4 @@
-# Complete Project Summary
+# DiagnoReport - Complete Project Summary
 
 ## 📊 Project Statistics
 
@@ -14,7 +14,7 @@
 ## 📁 Complete File Structure
 
 ```
-ddr-report-system/
+diagnoreport/
 │
 ├── backend/
 │   ├── __init__.py                          # Package initialization

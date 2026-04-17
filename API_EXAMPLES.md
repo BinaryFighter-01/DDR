@@ -133,7 +133,7 @@ fetch('/api/samples')
 import requests
 response = requests.get('https://your-project.vercel.app/api/health')
 print(response.json())
-# Output: {"status": "healthy", "service": "DDR Report Generator", "version": "1.0.0"}
+# Output: {"status": "healthy", "service": "DiagnoReport", "version": "1.0.0"}
 
 # cURL
 curl https://your-project.vercel.app/api/health

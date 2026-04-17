@@ -1,15 +1,4 @@
 {
-     "functions": {
-          "api/generate_ddr.py": {
-               "runtime": "python3.11"
-          },
-          "api/health.py": {
-               "runtime": "python3.11"
-          },
-          "api/samples.py": {
-               "runtime": "python3.11"
-          }
-     },
      "buildCommand": "pip install -r requirements.txt",
      "installCommand": "pip install -r requirements.txt"
 }

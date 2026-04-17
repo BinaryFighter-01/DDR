@@ -1,4 +1,4 @@
-# Vercel Deployment Instructions
+# DiagnoReport - Vercel Deployment Instructions
 
 ## Quick Start
 
@@ -14,7 +14,7 @@
 npm install -g vercel
 
 # Navigate to project
-cd ddr-report-system
+cd diagnoreport
 
 # Deploy
 vercel deploy
@@ -26,7 +26,7 @@ vercel deploy
 
 **Option A: Via Vercel Dashboard**
 1. Go to https://vercel.com/dashboard
-2. Select your "ddr-report-system" project
+2. Select your "diagnoreport" project
 3. Go to Settings → Environment Variables
 4. Add: `GEMINI_API_KEY` = `your-api-key-here`
 5. Redeploy: `vercel deploy --prod`
@@ -70,7 +70,7 @@ python app.py
 ### Test with Sample Data
 1. Open http://localhost:5000
 2. Click "Load Sample Data"
-3. Click "Generate DDR Report"
+3. Click "Generate Report"
 4. View results in Report, JSON, or HTML tabs
 
 ## Repository Structure
