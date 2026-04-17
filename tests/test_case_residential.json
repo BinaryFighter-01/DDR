@@ -1,0 +1,148 @@
+{
+     "inspection_report": {
+          "type": "inspection_report",
+          "property_address": "1425 Oak Avenue, Austin, TX 78704",
+          "inspection_date": "2026-04-15",
+          "inspector_name": "Sarah Johnson",
+          "inspector_license": "TX-45892",
+          "property_type": "Residential Single Family",
+          "year_built": 2005,
+          "square_footage": 3200,
+          "areas": [
+               {
+                    "name": "Roof",
+                    "description": "Composition shingle roof with gutters",
+                    "observations": [
+                         "Roof appears to be in good condition",
+                         "Shingles intact with minimal wear",
+                         "Gutters clean and properly attached",
+                         "Estimated roof age: 8 years"
+                    ],
+                    "issues": []
+               },
+               {
+                    "name": "Walls and Exterior",
+                    "description": "Vinyl siding exterior",
+                    "observations": [
+                         "Vinyl siding in good condition",
+                         "All caulking around windows intact",
+                         "No visible water damage or staining",
+                         "Foundation appears solid with no visible cracks"
+                    ],
+                    "issues": []
+               },
+               {
+                    "name": "HVAC System",
+                    "description": "Central air and heating system",
+                    "observations": [
+                         "Air conditioning unit installed 2018 - 8 years old",
+                         "Furnace installed 2015 - 11 years old",
+                         "Ductwork properly insulated",
+                         "Recent maintenance records available"
+                    ],
+                    "issues": []
+               },
+               {
+                    "name": "Plumbing",
+                    "description": "Water supply and drainage",
+                    "observations": [
+                         "Water heater installed 2019 - 7 years old",
+                         "All pipes are PEX or PVC",
+                         "No water stains or leaks observed",
+                         "Water pressure strong at all fixtures"
+                    ],
+                    "issues": []
+               },
+               {
+                    "name": "Electrical System",
+                    "description": "Main electrical panel and wiring",
+                    "observations": [
+                         "Main panel is 200-amp service - adequate for modern home",
+                         "All wiring is copper",
+                         "GFCI outlets present in bathrooms and kitchen",
+                         "Panel properly labeled and organized",
+                         "No visible code violations"
+                    ],
+                    "issues": []
+               },
+               {
+                    "name": "Attic",
+                    "description": "Attic space and insulation",
+                    "observations": [
+                         "Insulation depth approximately R-38 - meets current standards",
+                         "No evidence of water infiltration",
+                         "Proper soffit and ridge ventilation",
+                         "Vapor barrier properly installed",
+                         "No visible roof leaks from interior"
+                    ],
+                    "issues": []
+               }
+          ]
+     },
+     "thermal_report": {
+          "type": "thermal_report",
+          "property_address": "1425 Oak Avenue, Austin, TX 78704",
+          "inspection_date": "2026-04-15",
+          "thermal_camera_model": "FLIR E6",
+          "camera_calibration_date": "2026-04-10",
+          "ambient_temperature_c": 22,
+          "report_time": "10:15",
+          "weather_conditions": "Clear, calm, morning sun",
+          "findings": [
+               {
+                    "area": "Roof and Attic Region",
+                    "temperature_range": "28-32°C",
+                    "analysis": "Uniform thermal distribution across roof surface indicates proper insulation and ventilation. No hotspots or cold spots detected.",
+                    "anomalies": [],
+                    "severity": "NONE - Thermal imaging shows good insulation performance"
+               },
+               {
+                    "area": "Exterior Walls",
+                    "temperature_range": "24-26°C",
+                    "analysis": "Consistent temperature across all exterior walls. No thermal bridging or air infiltration detected.",
+                    "anomalies": [],
+                    "severity": "NONE - Exterior envelope in good condition"
+               },
+               {
+                    "area": "HVAC and Furnace Area",
+                    "temperature_range": "20-25°C",
+                    "analysis": "Temperature distribution normal. Ductwork properly insulated with no visible losses.",
+                    "anomalies": [],
+                    "severity": "NONE - System operating efficiently"
+               },
+               {
+                    "area": "Plumbing - Water Heater",
+                    "temperature_range": "45-48°C",
+                    "analysis": "Water heater operating at normal temperature with proper insulation. No anomalies detected.",
+                    "anomalies": [],
+                    "severity": "NONE - Water heater in good condition"
+               },
+               {
+                    "area": "Electrical Panel Area",
+                    "temperature_range": "21-24°C",
+                    "analysis": "Panel temperature normal. No hotspots indicating electrical issues.",
+                    "anomalies": [],
+                    "severity": "NONE - Electrical system operating normally"
+               },
+               {
+                    "area": "Foundation and Basement",
+                    "temperature_range": "18-22°C",
+                    "analysis": "Foundation temperature uniform with no cold spots. No air infiltration detected.",
+                    "anomalies": [],
+                    "severity": "NONE - Foundation sealed properly"
+               }
+          ],
+          "overall_analysis": "Thermal imaging shows a well-maintained property with no significant issues. All systems are operating efficiently.",
+          "energy_loss_estimate": "Minimal energy loss. Property is energy efficient.",
+          "moisture_risk_assessment": "LOW - No moisture infiltration pathways identified",
+          "recommended_thermal_improvements": [],
+          "images": [
+               {
+                    "area": "Overall thermal view",
+                    "description": "Full property thermal image showing consistent temperature distribution",
+                    "url": "/images/thermal-overall.jpg",
+                    "temperature_reading": "25°C average"
+               }
+          ]
+     }
+}

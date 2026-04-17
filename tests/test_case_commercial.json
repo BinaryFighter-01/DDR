@@ -1,0 +1,208 @@
+{
+     "inspection_report": {
+          "type": "inspection_report",
+          "property_address": "5500 Commerce Drive, Charlotte, NC 28202",
+          "inspection_date": "2026-04-12",
+          "inspector_name": "Michael Chen",
+          "inspector_license": "NC-67234",
+          "property_type": "Commercial Office Building",
+          "year_built": 1995,
+          "square_footage": 45000,
+          "areas": [
+               {
+                    "name": "Roof",
+                    "description": "Flat membrane roof",
+                    "observations": [
+                         "Membrane roof showing significant age",
+                         "Multiple patches visible",
+                         "Gutters clogged with debris",
+                         "Estimated roof age: 18 years"
+                    ],
+                    "issues": [
+                         "Roof near end of lifespan",
+                         "Existing patches suggest prior leaks",
+                         "Clogged gutters increase water intrusion risk"
+                    ]
+               },
+               {
+                    "name": "Walls and Exterior",
+                    "description": "Metal and brick facade",
+                    "observations": [
+                         "Metal panels show rust and corrosion",
+                         "Brick mortar deteriorating in several areas",
+                         "Weatherproofing caulk cracked and failing",
+                         "Parking lot has significant cracks and settling"
+                    ],
+                    "issues": [
+                         "Metal corrosion requires maintenance",
+                         "Mortar deterioration compromises weatherproofing",
+                         "Parking lot requires resurfacing"
+                    ]
+               },
+               {
+                    "name": "HVAC System",
+                    "description": "Commercial rooftop HVAC units",
+                    "observations": [
+                         "Multiple rooftop units - mixed ages",
+                         "Some units showing rust and corrosion",
+                         "Ductwork visible and appears to have gaps",
+                         "No recent maintenance records provided"
+                    ],
+                    "issues": [
+                         "Some units near replacement age",
+                         "Ductwork insulation compromised",
+                         "Lack of maintenance records concerning"
+                    ]
+               },
+               {
+                    "name": "Plumbing",
+                    "description": "Commercial water and drainage systems",
+                    "observations": [
+                         "Multiple water heaters for different zones",
+                         "Pipes show signs of age and corrosion",
+                         "Drain systems adequate but aging",
+                         "No emergency shut-off locations clearly marked"
+                    ],
+                    "issues": [
+                         "Water heater replacement soon needed",
+                         "Pipe corrosion may cause leaks",
+                         "Maintenance access needed for emergency shutoffs"
+                    ]
+               },
+               {
+                    "name": "Electrical System",
+                    "description": "Commercial three-phase electrical service",
+                    "observations": [
+                         "Main service: 400-amp three-phase",
+                         "Panel room organization poor",
+                         "Some older branch circuits present",
+                         "Emergency generators present but not recently tested"
+                    ],
+                    "issues": [
+                         "Older circuits may not meet current codes",
+                         "Panel room needs organization",
+                         "Generator maintenance schedule unclear"
+                    ]
+               },
+               {
+                    "name": "Common Areas",
+                    "description": "Lobbies, hallways, and shared spaces",
+                    "observations": [
+                         "Carpeting worn and stained",
+                         "Lighting fixtures aging and some non-functional",
+                         "Drop ceiling tiles stained and sagging",
+                         "Restrooms showing signs of water damage"
+                    ],
+                    "issues": [
+                         "Cosmetic upgrades needed",
+                         "Lighting retrofits recommended",
+                         "Restroom maintenance issues",
+                         "Water damage investigation needed"
+                    ]
+               }
+          ]
+     },
+     "thermal_report": {
+          "type": "thermal_report",
+          "property_address": "5500 Commerce Drive, Charlotte, NC 28202",
+          "inspection_date": "2026-04-12",
+          "thermal_camera_model": "FLIR A700",
+          "camera_calibration_date": "2026-04-05",
+          "ambient_temperature_c": 18,
+          "report_time": "09:00",
+          "weather_conditions": "Partly cloudy, light wind",
+          "findings": [
+               {
+                    "area": "Roof and HVAC Units",
+                    "temperature_range": "28-45°C",
+                    "analysis": "Significant thermal variations across roof. Hot spots at HVAC units and cold spots indicating poor insulation. Roof membrane showing age-related thermal degradation.",
+                    "anomalies": [
+                         "Hot spots (45°C) at HVAC unit bases",
+                         "Cold zones (28°C) indicating thin membrane insulation",
+                         "Temperature differential of 17°C suggests energy losses"
+                    ],
+                    "severity": "HIGH - Significant thermal bridging and insulation failure"
+               },
+               {
+                    "area": "Metal Facade Areas",
+                    "temperature_range": "16-32°C",
+                    "analysis": "Metal panels show significant temperature variations consistent with corrosion and gaps. Poor thermal envelope control.",
+                    "anomalies": [
+                         "Cold streaks (16°C) at panel joints indicating air leakage",
+                         "Hot spots (32°C) at rust areas due to conductivity changes",
+                         "Large temperature variations indicate air infiltration"
+                    ],
+                    "severity": "HIGH - Air infiltration and thermal bridging"
+               },
+               {
+                    "area": "Interior Climate Zones",
+                    "temperature_range": "19-26°C",
+                    "analysis": "Multiple distinct temperature zones visible. Evidence of zoned HVAC systems not communicating properly. Some areas showing cold spots indicating air leaks.",
+                    "anomalies": [
+                         "Temperature variations between zones 19-26°C",
+                         "Cold spots in corners suggesting air infiltration",
+                         "Inconsistent conditioning indicates control issues"
+                    ],
+                    "severity": "MEDIUM - Zone control and air infiltration issues"
+               },
+               {
+                    "area": "Plumbing - Water Heater Area",
+                    "temperature_range": "40-55°C",
+                    "analysis": "Water heater showing elevated surface temperatures (55°C). Surrounding pipes show thermal losses indicating poor insulation.",
+                    "anomalies": [
+                         "Pipe runs showing 15-20°C temperature drops",
+                         "Water heater surface exceeds optimal operating temperature",
+                         "Significant heat loss in distribution lines"
+                    ],
+                    "severity": "MEDIUM - Efficiency losses in hot water systems"
+               },
+               {
+                    "area": "Electrical Panel Room",
+                    "temperature_range": "22-28°C",
+                    "analysis": "Panel room temperature elevated (28°C) suggesting poor ventilation. Some circuit breakers showing minor heat signatures.",
+                    "anomalies": [
+                         "Room temperature 6°C above ambient",
+                         "Minor hot spots on high-load circuits",
+                         "Inadequate ventilation indicated"
+                    ],
+                    "severity": "LOW - Minor ventilation concern"
+               },
+               {
+                    "area": "Parking Lot Area",
+                    "temperature_range": "20-35°C",
+                    "analysis": "Asphalt showing uneven thermal patterns. Cracks and settling visible as temperature discontinuities.",
+                    "anomalies": [
+                         "Temperature variations showing crack patterns",
+                         "Settling areas show 15°C temperature differences",
+                         "Indicates structural movement"
+                    ],
+                    "severity": "MEDIUM - Structural settling and cracking"
+               }
+          ],
+          "overall_analysis": "Thermal imaging reveals multiple areas of concern. Primary issues: (1) Roof and HVAC system efficiency, (2) Metal facade air infiltration, (3) Water heater and distribution losses, (4) Parking lot structural issues. Building envelope integrity compromised.",
+          "energy_loss_estimate": "Estimated annual energy cost increase of 20-25% due to identified thermal deficiencies",
+          "moisture_risk_assessment": "MEDIUM - Air infiltration pathways identified at facade joints and roof",
+          "recommended_thermal_improvements": [
+               "Replace roof membrane and improve insulation",
+               "Seal metal panel joints and add thermal breaks",
+               "Service and balance HVAC zones",
+               "Insulate hot water lines and optimize heater",
+               "Improve electrical panel room ventilation",
+               "Repair asphalt parking lot and address settling"
+          ],
+          "images": [
+               {
+                    "area": "Roof thermal view",
+                    "description": "Thermal image showing HVAC units and roof membrane temperature variations",
+                    "url": "/images/thermal-roof-commercial.jpg",
+                    "temperature_reading": "45°C maximum"
+               },
+               {
+                    "area": "Facade thermal view",
+                    "description": "Metal panel facade showing air infiltration patterns",
+                    "url": "/images/thermal-facade.jpg",
+                    "temperature_reading": "16°C minimum at joints"
+               }
+          ]
+     }
+}

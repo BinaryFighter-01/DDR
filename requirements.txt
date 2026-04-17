@@ -1,2 +1,9 @@
 google-generativeai==0.3.0
 flask==3.0.0
+python-pdf2image==1.17.0
+pdf2image==1.17.0
+PyPDF2==4.0.1
+pillow==10.1.0
+pytesseract==0.3.10
+fitz==0.0.1.dev2
+pypdf==4.0.1

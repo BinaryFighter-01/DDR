@@ -1,0 +1,121 @@
+{
+     "test_configuration": {
+          "version": "1.0",
+          "test_suite_name": "DiagnoReport Test Suite",
+          "description": "Comprehensive testing for DiagnoReport diagnostic report generation system",
+          "api_configuration": {
+               "provider": "Google Gemini",
+               "model": "gemini-2.0-flash",
+               "timeout": 30,
+               "retry_attempts": 3,
+               "rate_limit": "10 requests per minute"
+          },
+          "validation_rules": {
+               "required_sections": [
+                    "executive_summary",
+                    "property_details",
+                    "inspection_findings",
+                    "thermal_analysis",
+                    "integrated_analysis",
+                    "recommendations",
+                    "conclusion"
+               ],
+               "min_content_length": 100,
+               "required_fields": {
+                    "executive_summary": [
+                         "overview",
+                         "key_findings"
+                    ],
+                    "property_details": [
+                         "address",
+                         "inspection_date",
+                         "inspector"
+                    ],
+                    "recommendations": [
+                         "priority_items"
+                    ]
+               }
+          },
+          "test_cases": [
+               {
+                    "name": "Residential Property - Good Condition",
+                    "file": "test_case_residential.json",
+                    "type": "residential",
+                    "expected_severity": "LOW",
+                    "critical_sections": [
+                         "executive_summary",
+                         "property_details",
+                         "integrated_analysis",
+                         "recommendations"
+                    ],
+                    "performance_target_ms": 45000
+               },
+               {
+                    "name": "Commercial Property - Needs Maintenance",
+                    "file": "test_case_commercial.json",
+                    "type": "commercial",
+                    "expected_severity": "HIGH",
+                    "critical_sections": [
+                         "executive_summary",
+                         "property_details",
+                         "thermal_analysis",
+                         "integrated_analysis",
+                         "recommendations"
+                    ],
+                    "performance_target_ms": 50000
+               }
+          ],
+          "output_configuration": {
+               "format": "json",
+               "save_location": "tests/",
+               "naming_pattern": "output_{test_name}.json",
+               "create_summary": true,
+               "summary_file": "test_summary.json",
+               "compression": false
+          },
+          "error_handling": {
+               "fail_on_api_error": true,
+               "fail_on_missing_sections": true,
+               "fail_on_timeout": true,
+               "collect_error_details": true
+          },
+          "logging": {
+               "level": "INFO",
+               "log_to_file": false,
+               "log_to_console": true,
+               "verbose_output": false
+          },
+          "quality_gates": {
+               "min_pass_rate": 100,
+               "report_quality_score_threshold": 8.0,
+               "max_error_rate": 0,
+               "max_execution_time_ms": 60000
+          }
+     },
+     "test_data_profiles": {
+          "residential_good": {
+               "category": "residential",
+               "condition": "good",
+               "age_years": 21,
+               "square_footage": 2450,
+               "expected_issues": 0,
+               "expected_recommendations": 3
+          },
+          "residential_fair": {
+               "category": "residential",
+               "condition": "fair",
+               "age_years": 35,
+               "square_footage": 2200,
+               "expected_issues": 5,
+               "expected_recommendations": 8
+          },
+          "commercial_maintenance": {
+               "category": "commercial",
+               "condition": "needs_maintenance",
+               "age_years": 31,
+               "square_footage": 45000,
+               "expected_issues": 12,
+               "expected_recommendations": 15
+          }
+     }
+}
