@@ -1,0 +1,11 @@
+runtime: python311
+env: standard
+
+handlers:
+- url: /api/.*
+  script: auto
+  secure: always
+
+- url: /.*
+  static_files: frontend/index.html
+  upload: frontend/.*

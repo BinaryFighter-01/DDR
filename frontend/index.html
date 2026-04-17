@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDR Report Generator - Professional Diagnostic System</title>
+    <style>
+        :root {
+            --primary: #0F172A;
+            --secondary: #1E293B;
+            --accent: #3B82F6;
+            --accent-light: #60A5FA;
+            --success: #10B981;
+            --danger: #EF4444;
+            --warning: #F59E0B;
+            --border: #E2E8F0;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --bg-light: #F8FAFC;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 1.05em;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95em;
+            font-family: inherit;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            display: none;
+        }
+
+        .file-input-label {
+            display: block;
+            padding: 16px;
+            background: var(--bg-light);
+            border: 2px dashed var(--accent);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .file-input-label:hover {
+            background: rgba(59, 130, 246, 0.05);
+            border-color: var(--accent-light);
+        }
+
+        .file-name {
+            display: block;
+            margin-top: 8px;
+            color: var(--success);
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 0.9em;
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--accent);
+            border-left: 3px solid var(--accent);
+        }
+
+        .status {
+            padding: 12px 14px;
+            border-radius: 8px;
+            margin-top: 12px;
+            display: none;
+            font-size: 0.9em;
+            border-left: 3px solid transparent;
+        }
+
+        .status.success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border-left-color: var(--success);
+        }
+
+        .status.error {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border-left-color: var(--danger);
+        }
+
+        .status.loading {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+            border-left-color: var(--accent);
+        }
+
+        button {
+            padding: 11px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--text-primary);
+            width: 100%;
+            margin-top: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+            color: white;
+            flex: 1;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .results-card {
+            grid-column: 1 / -1;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .tab-button {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.2s;
+            position: relative;
+            bottom: -2px;
+        }
+
+        .tab-button:hover {
+            color: var(--text-primary);
+        }
+
+        .tab-button.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .report-section {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .report-section:last-child {
+            border-bottom: none;
+        }
+
+        .report-section h3 {
+            color: var(--accent);
+            margin-bottom: 14px;
+            font-size: 1.15em;
+        }
+
+        .report-content {
+            color: var(--text-primary);
+            line-height: 1.7;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 0.95em;
+        }
+
+        .json-viewer {
+            background: var(--bg-light);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Monaco', 'Courier New', monospace;
+            font-size: 0.85em;
+            max-height: 600px;
+            overflow-y: auto;
+            line-height: 1.5;
+        }
+
+        .metadata-display {
+            background: var(--bg-light);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.85em;
+            margin-bottom: 4px;
+        }
+
+        .metadata-value {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 32px;
+        }
+
+        .loading-spinner.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 3px solid var(--border);
+            border-top: 3px solid var(--accent);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 12px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 48px;
+            padding: 32px 20px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .header p {
+                font-size: 0.95em;
+            }
+            .metadata-display {
+                grid-template-columns: 1fr;
+            }
+            .tabs {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>DDR Report Generator</h1>
+                <p>Professional Diagnostic Analysis System - Inspection & Thermal Data Integration</p>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="card">
+                <div class="card-title">Inspection Report</div>
+                <div class="alert">Upload inspection data in JSON format or use sample data for demonstration</div>
+
+                <div class="input-group">
+                    <label>Select Inspection Report</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="inspectionFile" accept=".json">
+                        <label for="inspectionFile" class="file-input-label">
+                            Select or drag inspection file
+                        </label>
+                        <span class="file-name" id="inspectionFileName"></span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Property Address</label>
+                    <input type="text" id="propertyAddress" placeholder="Enter property address">
+                </div>
+
+                <div class="input-group">
+                    <label>Inspection Date</label>
+                    <input type="date" id="inspectionDate">
+                </div>
+
+                <button class="btn-secondary" onclick="loadSampleData()">Load Sample Data</button>
+                <div class="status" id="inspectionStatus"></div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Thermal Report</div>
+                <div class="alert">Upload thermal imaging data in JSON format or load sample data</div>
+
+                <div class="input-group">
+                    <label>Select Thermal Report</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="thermalFile" accept=".json">
+                        <label for="thermalFile" class="file-input-label">
+                            Select or drag thermal file
+                        </label>
+                        <span class="file-name" id="thermalFileName"></span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Output Format</label>
+                    <select id="outputFormat">
+                        <option value="json">JSON - Structured Data Format</option>
+                        <option value="html">HTML - Professional Report</option>
+                    </select>
+                </div>
+
+                <button class="btn-primary" onclick="generateReport()">Generate DDR Report</button>
+                <div class="status" id="generationStatus"></div>
+            </div>
+        </div>
+
+        <div class="card results-card" style="display: none;" id="resultsCard">
+            <div class="card-title">Generated Diagnostic Report</div>
+
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Processing inspection and thermal data...</p>
+            </div>
+
+            <div class="tabs" id="tabs" style="display: none;">
+                <button class="tab-button active" onclick="switchTab('report')">Formatted Report</button>
+                <button class="tab-button" onclick="switchTab('json')">JSON Data</button>
+                <button class="tab-button" onclick="switchTab('html')">HTML Preview</button>
+            </div>
+
+            <div id="report" class="tab-content active">
+                <div id="reportContent"></div>
+            </div>
+
+            <div id="json" class="tab-content">
+                <div class="json-viewer" id="jsonContent"></div>
+            </div>
+
+            <div id="html" class="tab-content">
+                <iframe id="htmlFrame" style="width: 100%; height: 700px; border: 1px solid var(--border); border-radius: 8px;"></iframe>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-success" onclick="downloadReport('json')">Download JSON</button>
+                <button class="btn-success" onclick="downloadReport('html')">Download HTML</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Advanced AI-powered diagnostic report generation system</p>
+            <p>Python backend | Google Gemini API | Vercel deployment</p>
+        </div>
+    </div>
+
+    <script>
+        let inspectionData = null;
+        let thermalData = null;
+        let currentReport = null;
+
+        document.getElementById('inspectionFile').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) readFile(file, data => {
+                inspectionData = data;
+                document.getElementById('inspectionFileName').textContent = 'Loaded: ' + file.name;
+                showStatus('inspectionStatus', 'success', 'Inspection report loaded successfully');
+            });
+        });
+
+        document.getElementById('thermalFile').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) readFile(file, data => {
+                thermalData = data;
+                document.getElementById('thermalFileName').textContent = 'Loaded: ' + file.name;
+                showStatus('generationStatus', 'success', 'Thermal report loaded successfully');
+            });
+        });
+
+        function readFile(file, callback) {
+            const reader = new FileReader();
+            reader.onload = e => {
+                try {
+                    callback(JSON.parse(e.target.result));
+                } catch (err) {
+                    showStatus('inspectionStatus', 'error', 'Invalid JSON file format');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function loadSampleData() {
+            showStatus('generationStatus', 'loading', 'Loading sample data...');
+            fetch('/api/samples')
+                .then(r => r.json())
+                .then(data => {
+                    inspectionData = data.inspection_report;
+                    thermalData = data.thermal_report;
+                    document.getElementById('inspectionFileName').textContent = 'Sample: Inspection Report';
+                    document.getElementById('thermalFileName').textContent = 'Sample: Thermal Report';
+                    document.getElementById('propertyAddress').value = inspectionData.property_address || '';
+                    document.getElementById('inspectionDate').value = inspectionData.inspection_date || '';
+                    showStatus('generationStatus', 'success', 'Sample data loaded - Ready to generate report');
+                })
+                .catch(err => showStatus('generationStatus', 'error', 'Failed to load sample: ' + err.message));
+        }
+
+        function generateReport() {
+            if (!inspectionData || !thermalData) {
+                showStatus('generationStatus', 'error', 'Please load both inspection and thermal reports first');
+                return;
+            }
+
+            showStatus('generationStatus', 'loading', 'Generating diagnostic report...');
+            document.getElementById('resultsCard').style.display = 'block';
+            document.getElementById('loadingSpinner').classList.add('active');
+            document.getElementById('tabs').style.display = 'none';
+
+            const payload = {
+                inspection_report: inspectionData,
+                thermal_report: thermalData,
+                property_address: document.getElementById('propertyAddress').value,
+                inspection_date: document.getElementById('inspectionDate').value,
+                output_format: 'json'
+            };
+
+            fetch('/api/generate_ddr', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+                .then(r => r.json())
+                .then(result => {
+                    if (result.status === 'success') {
+                        currentReport = result.ddr_report;
+                        displayReport(result.ddr_report);
+                        showStatus('generationStatus', 'success', 'Report generated successfully');
+                    } else {
+                        showStatus('generationStatus', 'error', result.error || 'Report generation failed');
+                    }
+                })
+                .catch(err => showStatus('generationStatus', 'error', 'Error: ' + err.message))
+                .finally(() => document.getElementById('loadingSpinner').classList.remove('active'));
+        }
+
+        function displayReport(ddr) {
+            document.getElementById('tabs').style.display = 'flex';
+
+            let reportHTML = '<div class="metadata-display">';
+            reportHTML += `<div class="metadata-item"><span class="metadata-label">Generated</span><span class="metadata-value">${new Date(ddr.metadata.generated_date).toLocaleString()}</span></div>`;
+            reportHTML += `<div class="metadata-item"><span class="metadata-label">Property</span><span class="metadata-value">${ddr.metadata.property_address}</span></div>`;
+            reportHTML += `<div class="metadata-item"><span class="metadata-label">Inspection Date</span><span class="metadata-value">${ddr.metadata.inspection_date}</span></div>`;
+            reportHTML += '</div>';
+
+            for (const [key, content] of Object.entries(ddr.sections)) {
+                const title = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                reportHTML += `<div class="report-section"><h3>${title}</h3><div class="report-content">${content}</div></div>`;
+            }
+
+            document.getElementById('reportContent').innerHTML = reportHTML;
+            document.getElementById('jsonContent').textContent = JSON.stringify(ddr, null, 2);
+
+            const htmlContent = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>DDR Report</title><style>
+                body{font-family:Arial,sans-serif;line-height:1.7;color:#1E293B;max-width:900px;margin:0 auto;padding:20px;background:#F8FAFC}
+                h1{color:#0F172A;border-bottom:3px solid #3B82F6;padding-bottom:10px}h3{color:#3B82F6;margin-top:24px}
+                .metadata{background:#F8FAFC;padding:16px;border-radius:8px;margin-bottom:24px;border-left:4px solid #3B82F6}
+                .section{background:white;padding:20px;margin-bottom:20px;border-radius:8px;border:1px solid #E2E8F0}
+                pre{white-space:pre-wrap;word-wrap:break-word;background:#F8FAFC;padding:12px;border-radius:6px}
+            </style></head><body><h1>Detailed Diagnostic Report</h1><div class="metadata">
+                <p><strong>Generated:</strong> ${new Date(ddr.metadata.generated_date).toLocaleString()}</p>
+                <p><strong>Property:</strong> ${ddr.metadata.property_address}</p>
+                <p><strong>Date:</strong> ${ddr.metadata.inspection_date}</p>
+            </div>${Object.entries(ddr.sections).map(([k,v])=>`<div class="section"><h3>${k.replace(/_/g,' ').replace(/\b\w/g,l=>l.toUpperCase())}</h3><pre>${v}</pre></div>`).join('')}</body></html>`;
+            
+            document.getElementById('htmlFrame').srcdoc = htmlContent;
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function downloadReport(format) {
+            if (!currentReport) return;
+            const data = format === 'json' ? JSON.stringify(currentReport, null, 2) : document.getElementById('htmlFrame').srcdoc;
+            const blob = new Blob([data], { type: format === 'json' ? 'application/json' : 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ddr-report-${new Date().toISOString().split('T')[0]}.${format}`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function showStatus(elementId, type, message) {
+            const element = document.getElementById(elementId);
+            element.className = 'status ' + type;
+            element.textContent = message;
+        }
+
+        document.getElementById('inspectionDate').valueAsDate = new Date();
+    </script>
+</body>
+</html>

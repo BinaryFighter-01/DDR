@@ -1,0 +1,105 @@
+{
+     "type": "thermal_report",
+     "property_address": "2547 Maple Street, Denver, CO 80205",
+     "inspection_date": "2026-04-10",
+     "thermal_camera_model": "FLIR E8",
+     "camera_calibration_date": "2026-03-15",
+     "ambient_temperature_c": 12,
+     "report_time": "14:30",
+     "weather_conditions": "Clear, light wind, afternoon sun",
+     "findings": [
+          {
+               "area": "Roof and Attic Region",
+               "temperature_range": "35-42°C",
+               "analysis": "Significant thermal variations indicate possible insulation deficiencies. Hot spots on south-facing slope correlate with missing shingles and inadequate insulation coverage.",
+               "anomalies": [
+                    "Localized high temperatures (42°C) at roof edges suggesting air leakage",
+                    "Temperature differential of 7°C across roof surface indicates uneven insulation distribution"
+               ],
+               "severity": "HIGH - Indicates energy loss and potential moisture infiltration pathways"
+          },
+          {
+               "area": "Exterior Walls - West Side",
+               "temperature_range": "18-28°C",
+               "analysis": "Thermal imaging shows cold spots (18°C) at areas with mortar deterioration visible in inspection. Suggests moisture infiltration and possibly compromised wall insulation.",
+               "anomalies": [
+                    "Cold band following mortar line pattern",
+                    "Temperature drops 10°C at corners where caulking is cracked",
+                    "Indicates active thermal bridging through compromised seals"
+               ],
+               "severity": "HIGH - Suggests active water infiltration and thermal bridging"
+          },
+          {
+               "area": "HVAC and Furnace Area",
+               "temperature_range": "22-35°C",
+               "analysis": "Furnace shows elevated surface temperature (35°C during afternoon). Ducts in attic show inconsistent temperatures indicating poor insulation and inefficient distribution.",
+               "anomalies": [
+                    "Ductwork temperature variation suggests insulation gaps",
+                    "Hot spots on furnace casing indicate potential efficiency issues",
+                    "Temperature loss along uninsulated duct runs"
+               ],
+               "severity": "MEDIUM - Indicates efficiency loss but not immediate safety concern"
+          },
+          {
+               "area": "Plumbing - Water Heater",
+               "temperature_range": "45-52°C",
+               "analysis": "Water heater surface temperature elevated (52°C) suggesting heavy usage or insulation loss. Base area shows slight temperature variation consistent with reported water stains.",
+               "anomalies": [
+                    "Temperature anomaly near base (50°C vs surroundings 22°C)",
+                    "Surface temperature suggests inadequate tank insulation"
+               ],
+               "severity": "MEDIUM - Indicates age-related efficiency loss and possible minor leakage"
+          },
+          {
+               "area": "Electrical Panel Area",
+               "temperature_range": "20-26°C",
+               "analysis": "Panel temperature normal (24°C). No hotspots detected indicating no immediate electrical issues. However, older aluminum wiring visible elsewhere shows expected thermal signature.",
+               "anomalies": [
+                    "No critical anomalies detected at panel"
+               ],
+               "severity": "LOW - Thermal imaging shows no current electrical safety concerns"
+          },
+          {
+               "area": "Foundation and Basement",
+               "temperature_range": "15-20°C",
+               "analysis": "Foundation shows temperature pattern consistent with concrete thermal properties. Cold spots (15°C) in corners align with visible hairline cracks, suggesting possible air infiltration.",
+               "anomalies": [
+                    "Cold air infiltration pattern visible at crack locations",
+                    "Corner temperatures 5°C lower than wall average",
+                    "Indicates potential moisture movement through cracks"
+               ],
+               "severity": "MEDIUM - Suggests moisture and air infiltration through cracks"
+          }
+     ],
+     "overall_analysis": "Thermal imaging reveals multiple areas of concern correlating with physical inspection findings. Primary issues: (1) Roof/attic thermal loss and air leakage, (2) Wall envelope compromised by failed seals and mortar deterioration, (3) System efficiency losses in HVAC and water heating. These issues represent significant energy waste and potential moisture control problems.",
+     "energy_loss_estimate": "Estimated annual heating/cooling cost increase of 15-20% due to identified thermal deficiencies",
+     "moisture_risk_assessment": "HIGH - Multiple pathways for moisture infiltration identified through thermal imaging",
+     "recommended_thermal_improvements": [
+          "Increase attic insulation to R-38 minimum",
+          "Seal all air leakage points at roof penetrations",
+          "Repair exterior wall caulking and mortar",
+          "Insulate exposed ductwork in attic",
+          "Replace or upgrade furnace for efficiency gains",
+          "Consider water heater replacement with high-efficiency model"
+     ],
+     "images": [
+          {
+               "area": "Roof thermal image",
+               "description": "Thermal image showing temperature gradient across roof - hot spots at south slope",
+               "url": "/images/thermal-roof.jpg",
+               "temperature_reading": "42°C"
+          },
+          {
+               "area": "West Wall thermal image",
+               "description": "Thermal pattern showing mortar line deterioration with cold air infiltration",
+               "url": "/images/thermal-wall-west.jpg",
+               "temperature_reading": "18°C minimum"
+          },
+          {
+               "area": "Attic ductwork",
+               "description": "Thermal view of uninsulated HVAC ducts showing heat loss",
+               "url": "/images/thermal-ducts.jpg",
+               "temperature_reading": "28°C"
+          }
+     ]
+}
